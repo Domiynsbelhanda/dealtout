@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>213542070841-jhgjmfcsovgbc0n3dj2jc3320shotctp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.213542070841-jhgjmfcsovgbc0n3dj2jc3320shotctp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBhE2_cD0Zjxib71THAg1SF8AMz_PMU_Lw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>213542070841</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>cd.belhanda.dealtout</string>
+	<key>PROJECT_ID</key>
+	<string>dealtout-cb535</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dealtout-cb535.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:213542070841:ios:f148c4df4f84722518bbe8</string>
+	<key>DATABASE_URL</key>
+	<string>https://dealtout-cb535.firebaseio.com</string>
+</dict>
+</plist>

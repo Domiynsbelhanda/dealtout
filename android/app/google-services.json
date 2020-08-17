@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "213542070841",
+    "firebase_url": "https://dealtout-cb535.firebaseio.com",
+    "project_id": "dealtout-cb535",
+    "storage_bucket": "dealtout-cb535.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213542070841:android:afe73d8978b9969218bbe8",
+        "android_client_info": {
+          "package_name": "cd.belhanda.dealtout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJPwfScjam6l9rlFCDu4_uJ_D5j9Pjsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213542070841:android:335f9eb37f5c274b18bbe8",
+        "android_client_info": {
+          "package_name": "cd.belhanda.imbisha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJPwfScjam6l9rlFCDu4_uJ_D5j9Pjsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
