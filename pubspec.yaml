@@ -37,6 +37,8 @@ dependencies:
   vertical_tabs: ^0.1.4
   cloud_firestore: ^0.13.7
   firebase_messaging: ^5.0.4
+  google_fonts: ^1.1.1
+  splashscreen:
   
 
 

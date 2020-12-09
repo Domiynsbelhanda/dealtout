@@ -10,7 +10,7 @@ save(String key, dynamic value) async {
 
 abstract class AuthImplementation{
   Future<String> SignIn(String email, String password);
-  Future<String> SignUp(String email, String password);
+  Future<String> SignUp(String email, String password, String telephone);
   Future<String> getCurrentUser();
   Future<void> singOut();
 }
@@ -24,7 +24,7 @@ class Auth implements AuthImplementation{
     return user.uid;
   }
 
-  Future<String> SignUp(String email, String password) async{
+  Future<String> SignUp(String email, String password, String telephone) async{
     FirebaseUser user = (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user;
     
     DatabaseReference ref = FirebaseDatabase.instance.reference();
@@ -33,6 +33,7 @@ class Auth implements AuthImplementation{
       "key": user.uid.toString(),
       "email": email,
       "password": password,
+      "telephone": telephone
     };
 
     ref.child("Users").child(user.uid.toString()).set(data);

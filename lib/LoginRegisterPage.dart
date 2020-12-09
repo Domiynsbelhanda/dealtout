@@ -1,5 +1,6 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Authentification.dart';
 import 'DialogBox.dart';
@@ -47,7 +48,9 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   final formKey = new GlobalKey<FormState>();
   FormType _formType = FormType.login;
   String _email = "";
+  String _pseudo = "";
   String _password = "";
+  String _telephone ="";
   String key;
 
   bool validateAndSave(){
@@ -107,7 +110,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   );
     new Future.delayed(new Duration(seconds: 3), () async {
     if(_formType == FormType.register){
-          String userId = await widget.auth.SignUp(_email, _password);
+          String userId = await widget.auth.SignUp(_email, _password, _telephone);
           Navigator.pop(context);
           myInterstitial = buildInterstitialAd()..load();
           myInterstitial..show();
@@ -136,14 +139,14 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
       key = (sharedPrefs.getString('key') ?? false);
     });
   }
+  double height, width;
 
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
     return new Scaffold(
-      backgroundColor: Colors.black12,
-      appBar: new AppBar(
-        title: new Text("DEAL TOUT"),
-      ),
+      backgroundColor: Colors.black,
       body: new SingleChildScrollView(
         child: new Container(
         child: new Container(
@@ -152,7 +155,10 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
             key: formKey,
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: createLogin() + createInputs(),
+                children:
+                _formType == FormType.login ?
+                createLogin() + createInputs() :
+                createLogins() + createInputs(),
               )
           ),
         ),
@@ -164,33 +170,88 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   List <Widget> createInputs(){
     if (_formType == FormType.login){
       return [
-        new RaisedButton(
-          child: new Text("Connexion", style: new TextStyle(fontSize: 20.0)),
-          textColor: Colors.black87,
-          color: Colors.white,
-          onPressed: validateAndSubmit,
+        Padding(
+          padding: EdgeInsets.only(left:0, right:0, top: width / 13),
+          child: Container(
+              height: width / 12,
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: Colors.grey[100]),
+                  top: BorderSide(color: Colors.grey[100]),
+                  left: BorderSide(color: Colors.grey[100]),
+                  right: BorderSide(color: Colors.grey[100])
+              ),
+              color: Colors.white
+            ),
+              child: Center(
+                child: FlatButton(
+                  child: new Text("Connexion", style: new TextStyle(color: Colors.black,
+                      fontSize: width / 20)),
+                  onPressed: validateAndSubmit,
+                ),
+              ),
+            ),
         ),
 
-        new RaisedButton(
+        SizedBox(height: MediaQuery.of(context).size.width / 10),
+
+        Container(
+          height: width / 12,
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: Colors.grey[100]),
+                  top: BorderSide(color: Colors.grey[100]),
+                  left: BorderSide(color: Colors.grey[100]),
+                  right: BorderSide(color: Colors.grey[100])
+              ),
+              color: Colors.black
+          ),
+          child: Center(
+            child: new FlatButton(
+              child: new Text(
+                  "Pas de compte? Créer un compte", style: new TextStyle(fontSize: width / 23)),
+              textColor: Colors.white,
+              onPressed: moveToRegister,
+            ),
+          ),
+        ),
+
+        new FlatButton(
           child: new Text(
-              "Pas de compte? Créer un compte", style: new TextStyle(fontSize: 14.0)),
-          textColor: Colors.black,
+              "Mot de passe oublié ?", style: new TextStyle(fontSize: width / 23)),
+          textColor: Colors.white,
           onPressed: moveToRegister,
         ),
       ];
     } else{
       return [
-        new RaisedButton(
-          child: new Text("Inscription", style: new TextStyle(fontSize: 20.0)),
-          textColor: Colors.black87,
-          color: Colors.white,
-          onPressed: validateAndSubmit,
+        Padding(
+          padding: EdgeInsets.only(left:width/10, right:width/10, top: width / 13),
+          child: Container(
+            height: width / 12,
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(color: Colors.grey[100]),
+                  top: BorderSide(color: Colors.grey[100]),
+                  left: BorderSide(color: Colors.grey[100]),
+                  right: BorderSide(color: Colors.grey[100])
+              ),
+              color: Colors.white,
+            ),
+            child: Center(
+              child: FlatButton(
+                child: new Text("Inscription", style: new TextStyle(color: Colors.black,
+                    fontSize: width / 20)),
+                onPressed: validateAndSubmit,
+              ),
+            ),
+          ),
         ),
 
-        new RaisedButton(
+        new FlatButton(
           child: new Text(
-              "Vous êtes inscris, connectez-vous", style: new TextStyle(fontSize: 14.0)),
-          textColor: Colors.black,
+              "Vous êtes inscris, connectez-vous", style: new TextStyle(fontSize: width / 24)),
+          textColor: Colors.white,
           onPressed: moveToLogin,
         ),
 
@@ -199,66 +260,229 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
   }
 
   Widget logo(){
-    return new Hero(
-      tag: 'Hero',
-      child: new CircleAvatar(
-        backgroundColor: Colors.transparent,
-          radius: 110.0,
-        child: Image.network(
-          'https://firebasestorage.googleapis.com/v0/b/dealtout-cb535.appspot.com/o/dealTout_logo.png?alt=media&token=864499f0-6c6f-41cb-a76d-278cacc94b4f'
+    return Column(
+      children: <Widget>[
+        Container(
+        height: width / 3,
+            width: width / 3,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/image/logo.png')
+                )
+            )
+        ),
+        Text('Deal Tout',
+          style: GoogleFonts.montserrat(
+            color: Colors.white,
+            fontSize: MediaQuery.of(context).size.width / 14,
           ),
-      )
+        ),
+      ],
     );
+  }
+
+  List<Widget> createLogins(){
+    return[
+      SizedBox(height: width / 7),
+      logo(),
+      SizedBox(height: width / 10),
+      Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+
+        ),
+        child: Column(
+          children: <Widget>[
+            Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Colors.grey[100]),
+                        top: BorderSide(color: Colors.grey[100]),
+                        left: BorderSide(color: Colors.grey[100]),
+                        right: BorderSide(color: Colors.grey[100])
+                    ),
+                ),
+
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "  Pseudo",
+                      fillColor: Colors.white,
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400])
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'Pseudo requis.' : null;
+                  },
+
+                  onSaved: (value){
+                    return _pseudo = value;
+                  },
+                )
+            ),
+
+            SizedBox(height: 5.0),
+
+            Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.grey[100]),
+                      top: BorderSide(color: Colors.grey[100]),
+                      left: BorderSide(color: Colors.grey[100]),
+                      right: BorderSide(color: Colors.grey[100])
+                  ),
+                ),
+
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "  Email",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400])
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'Email requis.' : null;
+                  },
+
+                  onSaved: (value){
+                    return _email = value;
+                  },
+                )
+            ),
+
+            SizedBox(height: 5.0),
+
+            Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.grey[100]),
+                      top: BorderSide(color: Colors.grey[100]),
+                      left: BorderSide(color: Colors.grey[100]),
+                      right: BorderSide(color: Colors.grey[100])
+                  ),
+                ),
+
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "  N° Phone",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400])
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'N° Téléphone requis.' : null;
+                  },
+
+                  onSaved: (value){
+                    return _telephone = value;
+                  },
+                )
+            ),
+
+            SizedBox(height: 5.0),
+
+            Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Colors.grey[100]),
+                      top: BorderSide(color: Colors.grey[100]),
+                      left: BorderSide(color: Colors.grey[100]),
+                      right: BorderSide(color: Colors.grey[100])
+                      ),
+                  color: Colors.transparent
+                ),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "   Mot de passe",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400]
+                      )
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'Password requis.' : null;
+                  },
+
+                  onSaved: (value){
+                    return _password = value;
+                  },
+                )
+            ),
+          ],
+        ),
+      ),
+    ];
   }
 
   List<Widget> createLogin(){
     return[
-      SizedBox(height: 10.0),
+      SizedBox(height: width / 7),
       logo(),
-      SizedBox(height: 10.0),
+      SizedBox(height: width / 10),
+      Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
 
-      new TextFormField(
-         decoration: new InputDecoration(
-                    fillColor: Colors.white,
-                      filled: true,
-                      contentPadding: new EdgeInsets.fromLTRB(
-                          10.0, 30.0, 10.0, 10.0),
-                      border: new OutlineInputBorder(
-                        borderRadius: new BorderRadius.circular(12.0),
-                      ),
-                      labelText: 'Email'),
+        ),
+        child: Column(
+          children: <Widget>[
+            Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.grey[100]),
+                      top: BorderSide(color: Colors.grey[100]),
+                      left: BorderSide(color: Colors.grey[100]),
+                      right: BorderSide(color: Colors.grey[100])
+                  ),
+                ),
 
-        validator: (value){
-          return value.isEmpty ? 'Email requis.' : null;
-        },
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "  Email",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400])
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'Email requis.' : null;
+                  },
 
-        onSaved: (value){
-          return _email = value;
-        },
+                  onSaved: (value){
+                    return _email = value;
+                  },
+                )
+            ),
+
+            SizedBox(height: 5.0),
+
+            Container(
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey[100]),
+                        top: BorderSide(color: Colors.grey[100]),
+                        left: BorderSide(color: Colors.grey[100]),
+                        right: BorderSide(color: Colors.grey[100])
+                    ),
+                    color: Colors.transparent
+                ),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: "   Mot de passe",
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(color: Colors.grey[400]
+                      )
+                  ),
+                  validator: (value){
+                    return value.isEmpty ? 'Password requis.' : null;
+                  },
+
+                  onSaved: (value){
+                    return _password = value;
+                  },
+                )
+            ),
+          ],
+        ),
       ),
-      SizedBox(height: 10.0),
-
-      new TextFormField(
-        decoration: new InputDecoration(
-                    fillColor: Colors.white,
-                      filled: true,
-                      contentPadding: new EdgeInsets.fromLTRB(
-                          10.0, 30.0, 10.0, 10.0),
-                      border: new OutlineInputBorder(
-                        borderRadius: new BorderRadius.circular(12.0),
-                      ),
-                      labelText: 'Password'),
-
-        validator: (value){
-          return value.isEmpty ? 'Password requis.' : null;
-        },
-
-        onSaved: (value){
-          return _password = value;
-        },
-      ),
-
-      SizedBox(height: 20.0),
     ];
   }
 }

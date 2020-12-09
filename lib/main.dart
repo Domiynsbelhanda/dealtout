@@ -1,10 +1,42 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'Authentification.dart';
 import 'Mapping.dart';
+import 'package:splashscreen/splashscreen.dart';
     
     void main(){
-    runApp(new DealApp());
+    runApp(new DealApp(),);
     }
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  Future<Widget> loadFromFuture() async {
+
+    return Future.value(MappingPage(auth: Auth() ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+      navigateAfterFuture: loadFromFuture(),
+      seconds: 20,
+      title: new Text('Deal Tout',
+      style: GoogleFonts.montserrat(
+        color: Colors.white,
+        fontSize: MediaQuery.of(context).size.width / 14,
+      ),),
+      image: new Image.asset('assets/images/image/logo.png'),
+      photoSize: MediaQuery.of(context).size.width /3,
+      backgroundColor: Colors.black,
+    );
+  }
+}
 
     class DealApp extends StatelessWidget{
 
@@ -16,7 +48,7 @@ import 'Mapping.dart';
                 theme: new ThemeData(
                     primarySwatch: Colors.blue,
                 ),
-                home: MappingPage(auth: Auth(), )
+                home: MyApp(), //MappingPage(auth: Auth(), )
             );
         }
     }
