@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         fontSize: MediaQuery.of(context).size.width / 14,
       ),),
       image: new Image.asset('assets/images/image/logo.png'),
-      photoSize: MediaQuery.of(context).size.width /3,
+      photoSize: 100,
       backgroundColor: Colors.black,
     );
   }

@@ -106,13 +106,16 @@ class _HomePageState extends State<HomePage>{
     });
   }
 
+  var size;
+
   @override
   Widget build(BuildContext context) {
 
-  var size = MediaQuery.of(context).size;
+  size = MediaQuery.of(context).size;
   final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
   final double itemWidth = size.width / 2;
 
+  int _currentIndex = 0;
 
     return new Scaffold(
       body: new Container(
@@ -163,61 +166,84 @@ class _HomePageState extends State<HomePage>{
         )
       ),
 
-      bottomNavigationBar: new BottomAppBar(
-        color: Colors.white70,
-        child: new Container(
-          margin: const EdgeInsets.only(left: 50.0, right: 50.0),
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.min,
+      bottomNavigationBar: new BottomNavigationBar(
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+        onTap: (newIndex) => setState((){
+          _currentIndex = newIndex;
 
-            children: <Widget>[
-              new IconButton(
-                icon: new Icon(Icons.close),
-                iconSize: 40,
-                color: Colors.black,
-                onPressed: (){_logoutUser();}
-              ),
-              new IconButton(
-                icon: new Icon(Icons.account_box),
-                iconSize: 40,
-                color: Colors.black,
-                onPressed: (){Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context){
-                    return new UserPage(clees);
-                  })
-                );}
-              ),
-              new IconButton(
-                icon: new Icon(Icons.message),
-                iconSize: 40,
-                color: Colors.black,
-                onPressed: (){Navigator.push(
+          if(_currentIndex == 0){
+            _logoutUser();
+          } else if (_currentIndex == 1)
+            {
+              Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context){
                     return new ChatBody(
                       keys: clees,
                     );
                   })
-                );}
-              ),
-              new IconButton(
-                icon: new Icon(Icons.add_a_photo), 
-                iconSize: 40, 
-                color: Colors.black, 
-                onPressed: (){
-                  Navigator.push(
+              );
+            }
+          else if (_currentIndex == 2)
+            {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context){
+                    return new UploadPhotoPage();
+                  })
+              );
+            }
+          else if (_currentIndex == 3)
+            {
+
+            } else if (_currentIndex == 4)
+              {
+                Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context){
-                      return new UploadPhotoPage();
+                      return new UserPage(clees);
                     })
-                  );
-                }
+                );
+              }
+        }),
+        items: [
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.close,
+                color: Colors.black,
               ),
-            ],
+              title: new Text("Déconnexion", style: TextStyle(color: Colors.black))
           ),
-        ),
+
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.message,
+                color: Colors.black,
+              ),
+              title: new Text("Message", style: TextStyle(color: Colors.black))
+          ),
+
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.add,
+                size: MediaQuery.of(context).size.width / 7,
+                color: Colors.black,
+              ),
+              title: new Text("Publier", style: TextStyle(color: Colors.black))
+          ),
+
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.info ,
+                color: Colors.black,
+              ),
+              title: new Text("About", style: TextStyle(color: Colors.black))
+          ),
+
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.account_circle_outlined ,
+                color: Colors.black,
+              ),
+              title: new Text("Moi", style: TextStyle(color: Colors.black))
+          ),
+        ],
       ),
     );
   }

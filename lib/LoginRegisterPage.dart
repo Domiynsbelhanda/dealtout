@@ -216,12 +216,12 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
           ),
         ),
 
-        new FlatButton(
+        /**new FlatButton(
           child: new Text(
               "Mot de passe oublié ?", style: new TextStyle(fontSize: width / 23)),
           textColor: Colors.white,
           onPressed: moveToRegister,
-        ),
+        ),*/
       ];
     } else{
       return [
@@ -306,6 +306,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 ),
 
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "  Pseudo",
                       fillColor: Colors.white,
@@ -335,6 +336,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 ),
 
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "  Email",
                       border: InputBorder.none,
@@ -363,6 +365,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 ),
 
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "  N° Phone",
                       border: InputBorder.none,
@@ -391,6 +394,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                   color: Colors.transparent
                 ),
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "   Mot de passe",
                       border: InputBorder.none,
@@ -437,6 +441,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                 ),
 
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "  Email",
                       border: InputBorder.none,
@@ -465,6 +470,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>{
                     color: Colors.transparent
                 ),
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       hintText: "   Mot de passe",
                       border: InputBorder.none,
