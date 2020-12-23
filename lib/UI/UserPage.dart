@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Affichage.dart';
 import 'package:flutter/material.dart';
 import 'Categories.dart';
-import 'Posts.dart';
+import '../Util/Posts.dart';
 
 const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
 

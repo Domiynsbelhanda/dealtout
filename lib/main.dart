@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Authentification.dart';
-import 'Mapping.dart';
+import 'Styles/Constants.dart';
+import 'Util/Authentification.dart';
+import 'Util/Mapping.dart';
 import 'package:splashscreen/splashscreen.dart';
     
     void main(){
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
                 debugShowCheckedModeBanner: false,
                 theme: new ThemeData(
                     primarySwatch: Colors.blue,
+                    textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
                 ),
                 home: MyApp(), //MappingPage(auth: Auth(), )
             );

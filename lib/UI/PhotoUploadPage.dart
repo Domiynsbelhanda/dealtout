@@ -1,5 +1,6 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -162,8 +163,15 @@ void _onLoading() {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Publication Image"),
-        centerTitle: true,
+        backgroundColor: Colors.white10,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.chevronCircleLeft,
+            color: Colors.black
+          ),
+          onPressed: ()=> Navigator.pop(context),
+        )
       ),
 
       body: new Center

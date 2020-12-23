@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'ChatBody.dart';
-import 'Posts.dart';
+import '../Util/Posts.dart';
 
 class ChatBody extends StatefulWidget{
   static const String id = "CHAT";
