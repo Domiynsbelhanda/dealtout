@@ -1,21 +1,20 @@
 import 'package:DEALTOUT/Styles/Constants.dart';
+import 'package:DEALTOUT/UI/UserPage.dart';
 import 'package:DEALTOUT/models/Product.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_admob/firebase_admob.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart' as Database;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../UI/Affichage.dart';
-import '../UI/Categories.dart';
 import '../UI/DialogBox.dart';
 import '../UI/PhotoUploadPage.dart';
 import 'package:flutter/material.dart';
 import '../Util/Authentification.dart';
-import '../Util/Posts.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import '../UI/UserPage.dart';
-import 'ChatBody.dart';
-import 'ListChat.dart';
+
+import 'About.dart';
+import 'Categories.dart';
+import 'details_screen.dart';
 
 const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
 const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
@@ -42,8 +41,11 @@ class _HomePageState extends State<HomePage>{
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   final AuthImplementation auth = new Auth();
+
+  String _categorisation;
   
   InterstitialAd myInterstitial;
+
 
   InterstitialAd buildInterstitialAd(){
     return InterstitialAd(
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage>{
 
         _firebaseMessaging.configure(
     	onMessage: (Map<String, dynamic> message) async {
-        showInSnackBar(message['notification']['body'], _scaffoldKey, context);
+        showInSnackBar(message['notification']['body']);
     	},
 
     	onLaunch: (Map<String, dynamic> message) {
@@ -84,20 +86,141 @@ class _HomePageState extends State<HomePage>{
     	onResume: (Map<String, dynamic> message) {
     	}
     );
+
+    categories.clear();
+    Database.FirebaseDatabase database = new Database.FirebaseDatabase();
+    Database.DatabaseReference postsRef = Database.FirebaseDatabase.instance.reference();
+    Database.Query cat = postsRef.child("Categories");
+
+    cat.once().then((Database.DataSnapshot snap){
+      var KEYS = snap.value.keys;
+      var DATA = snap.value;
+
+      categories.clear();
+
+      for(var individualKey in KEYS){
+        Categories categorie = new Categories(
+          DATA[individualKey]['nom'],
+          DATA[individualKey]['lien']
+        );
+
+        categories.add(categorie);
       }
+
+      setState((){
+        print(categories.length.toString());
+      });
+    });
+
+    liste_art();
+    user_data();
+
+  }
   
   void _logoutUser(context){
       auth.signOut(context);
   }
 
   int _currentIndex = 0;
+  List<Categories> categories = []; 
+  List<Products> produits = [];
+  Users users;
+
+  void liste_art() async {
+    if (_categorisation == null){
+      produits = [];
+
+      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp');
+
+    collectionReference
+    .snapshots()
+    .listen((data) =>
+        data.documents.forEach((doc) { setState(() {
+          produits.add(Products(
+            article: doc['article'],
+            categorie: doc['categorie'],
+            date: doc['date'],
+            description: doc['description'],
+            id : doc['id'],
+            image: doc['image'],
+            key: doc['key'],
+            prix: doc['prix'],
+            time: doc['time'],
+            timestamp: doc['timestamp']
+          ));
+        });
+        }));
+    } else {
+      produits = [];
+
+    Firestore.instance
+    .collection('Article')
+    .where('categorie', isEqualTo: _categorisation)
+    .snapshots()
+    .listen((data) =>
+        data.documents.forEach((doc) { setState(() {
+          produits.add(Products(
+            article: doc['article'],
+            categorie: doc['categorie'],
+            date: doc['date'],
+            description: doc['description'],
+            id : doc['id'],
+            image: doc['image'],
+            key: doc['key'],
+            prix: doc['prix'],
+            time: doc['time'],
+            timestamp: doc['timestamp']
+          ));
+        });
+        }));
+    }
+
+  }
+
+  void user_data() async{
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final FirebaseUser user = await auth.currentUser();
+    final uids = user.uid;
+
+    Firestore.instance
+    .collection('Users')
+    .where('key', isEqualTo: uids)
+    .snapshots()
+    .listen((data) =>
+        data.documents.forEach((doc) { setState(() {
+          users = Users(
+            key: doc['key'],
+            email: doc['email'],
+            telephone: doc['telephone'],
+            name: doc['name']
+          );
+        });
+        }));
+
+  }
+
+  void showInSnackBar(String value) {
+    FocusScope.of(context).requestFocus(new FocusNode());
+    _scaffoldKey.currentState?.removeCurrentSnackBar();
+    _scaffoldKey.currentState.showSnackBar(new SnackBar(
+      content: new Text(
+        value,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            color: Colors.white,
+            fontSize: 16.0,),
+      ),
+      backgroundColor: Colors.blue,
+      duration: Duration(seconds: 3),
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
 
     return new Scaffold(
       key: _scaffoldKey,
-      body: Body(),
+      body: Body(context),
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
@@ -105,12 +228,24 @@ class _HomePageState extends State<HomePage>{
           _currentIndex = newIndex;
 
           if(_currentIndex == 0){
-            // User Profile
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context){
+                    return new UserPage();
+                  })
+              );
           } else if (_currentIndex == 1){
             Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context){
                     return new UploadPhotoPage();
+                  })
+              );
+          } else if (_currentIndex == 2){
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context){
+                    return new About();
                   })
               );
           }
@@ -120,25 +255,38 @@ class _HomePageState extends State<HomePage>{
           new BottomNavigationBarItem(
             icon: new Icon(
               FontAwesomeIcons.userTie,
-              color: Colors.black,
+              color: Color(0xFFFF7643),
             ),
-            title: new Text("USER")
+            title: new Text(
+              "USER",
+              style: TextStyle(
+                color: Color(0xFF000000)
+              )
+              )
           ),
 
           new BottomNavigationBarItem(
             icon: new Icon(
               FontAwesomeIcons.plusSquare,
-              color: Colors.black,
+              color: Color(0xFFFF7643),
             ),
-            title: new Text("ADD")
+            title: new Text("ADD",
+                style: TextStyle(
+                  color: Color(0xFF000000)
+              ))
           ),
 
           new BottomNavigationBarItem(
             icon: new Icon(
-              FontAwesomeIcons.upload,
-              color: Colors.black,
+              FontAwesomeIcons.infoCircle,
+              color: Color(0xFFFF7643),
             ),
-            title: new Text("Publier un article")
+            title: new Text(
+              "ABOUT",
+              style: TextStyle(
+                color: Color(0xFF000000)
+              )
+              )
           ),
 
 
@@ -146,11 +294,9 @@ class _HomePageState extends State<HomePage>{
       ),
     );
   }
-}
 
-class Body extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+Widget Body (context) {
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -164,12 +310,12 @@ class Body extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Categories(),
+        Categorie(),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: GridView.builder(
-                itemCount: products.length,
+                itemCount: produits.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: kDefaultPaddin,
@@ -177,26 +323,90 @@ class Body extends StatelessWidget {
                   childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) => ItemCard(
-                      product: products[index],
-                      press: (){
-                        
-                      }// => Navigator.push(
-                          //context,
-                          //MaterialPageRoute(
-                            //builder: (context) => DetailsScreen(
-                              //product: products[index],
-                           // ),
-                         // )),
+                      product: produits[index],
+                      press: ()=> Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsScreen(
+                              product: produits[index],
+                              users: users
+                            ),
+                         )),
                     )),
           ),
         ),
       ],
     );
   }
+  
+
+  Widget Categorie(){
+    return new Container(
+      height:40.0,
+      child: new ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index){
+          return new GestureDetector(
+            child: new Card(
+                elevation: 5.0,
+                color: Color(0xFFFF7643),
+                child: new Container(
+                height: MediaQuery.of(context).size.width / 3,
+                width: MediaQuery.of(context).size.width / 3,
+                alignment: Alignment.center,
+                child:
+                new Stack(children: <Widget>[
+                  new Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      image: DecorationImage(image: NetworkImage(categories[index].lien), fit: BoxFit.cover)
+                    )
+                  ),
+                  
+                  new Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                  )
+                  ),
+
+                  new Center(child: new Text(
+                    categories[index].nom,
+                    style: new TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.0
+                    ),
+                  ),),
+
+                ],
+                ) 
+              ),
+            ),
+            onTap: () {
+              setState((){
+                if(categories[index].nom == "Toutes"){
+                  _categorisation = null;
+                } else {
+                  _categorisation = categories[index].nom;
+                }
+                liste_art();
+              });
+              /*if (index == 1 || index == 3 || index == 5 || index == 7){
+                myInterstitial = buildInterstitialAd()..load();
+                myInterstirtial..show();
+                print("index : " + index.toString());*/
+              }
+              //_firebase();
+          );
+        },
+      )
+    );
+  }
 }
 
 class ItemCard extends StatelessWidget {
-  final Product product;
+  final Products product;
   final Function press;
   const ItemCard({
     Key key,
@@ -213,18 +423,21 @@ class ItemCard extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(kDefaultPaddin),
+              padding: EdgeInsets.all(2.0),
               // For  demo we use fixed height  and width
               // Now we dont need them
-              // height: 180,
-              // width: 160,
+              height: 180,
+              width: 160,
               decoration: BoxDecoration(
-                color: product.color,
-                borderRadius: BorderRadius.circular(16),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
               ),
               child: Hero(
-                tag: "${product.id}",
-                child: Image.asset(product.image),
+                tag: "${product.key}",
+                child: Image.network(
+                  product.image,
+                  fit: BoxFit.fitWidth,
+                  ),
               ),
             ),
           ),
@@ -232,72 +445,15 @@ class ItemCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
             child: Text(
               // products is out demo list
-              product.title,
+              product.article,
               style: TextStyle(color: kTextLightColor),
             ),
           ),
           Text(
-            "\$${product.price}",
+            "${product.prix}",
             style: TextStyle(fontWeight: FontWeight.bold),
           )
         ],
-      ),
-    );
-  }
-}
-
-
-class Categories extends StatefulWidget {
-  @override
-  _CategoriesState createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
-  List<String> categories = ["Hand bag", "Jewellery", "Footwear", "Dresses"];
-  // By default our first item will be selected
-  int selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
-      child: SizedBox(
-        height: 25,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index),
-        ),
-      ),
-    );
-  }
-
-  Widget buildCategory(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              categories[index],
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: selectedIndex == index ? kTextColor : kTextLightColor,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: kDefaultPaddin / 4), //top padding 5
-              height: 2,
-              width: 30,
-              color: selectedIndex == index ? Colors.black : Colors.transparent,
-            )
-          ],
-        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Product {
@@ -13,6 +14,19 @@ class Product {
     this.size,
     this.color,
   });
+}
+
+class Products{
+  final String article, categorie, date, description, id, image, key, prix, time;
+  final Timestamp timestamp;
+
+  Products({this.article, this.categorie, this.date, this.description, this.id, this.image, this.key, this.prix, this.time, this.timestamp});
+}
+
+class Users{
+  final String email, key, name, telephone;
+
+  Users({this.email, this.key, this.name, this.telephone});
 }
 
 List<Product> products = [

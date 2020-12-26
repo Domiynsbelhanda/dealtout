@@ -145,6 +145,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
       myFocusNodePassword.dispose();
       myFocusNodeEmail.dispose();
       myFocusNodeName.dispose();
+      myFocusNodePhone.dispose();
       super.dispose();
     }
 
@@ -413,7 +414,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                         padding: EdgeInsets.only(
                             top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                         child: TextField(
-                          focusNode: myFocusNodeEmail,
+                          focusNode: myFocusNodePhone,
                           controller: signupPhoneController,
                           keyboardType: TextInputType.phone,
                           style: TextStyle(

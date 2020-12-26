@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_admob/firebase_admob.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -6,6 +8,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 import 'dart:io';
 
 import 'HomePage.dart';
@@ -26,10 +29,9 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>{
   File sampleImage;
   String _myValue;
   String _prix;
-  String _contact;
   String url;
-  String key;
-  String _value;
+  String _value = "Autres";
+  String _article;
   final formKey = new GlobalKey<FormState>();
 
   InterstitialAd myInterstitial;
@@ -90,7 +92,7 @@ void _onLoading() {
     },
   );
     new Future.delayed(new Duration(seconds: 3), () async {
-    final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Post Images");
+    final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Datas");
 
       var timeKey = new DateTime.now();
 
@@ -100,14 +102,13 @@ void _onLoading() {
 
       url = ImageUrl.toString();
       saveToDatabase(url);
-      Navigator.pop(context);
       myInterstitial = buildInterstitialAd()..load();
       myInterstitial..show();
       goToHomePage();
   });
 }
 
-  void saveToDatabase(url){
+  void saveToDatabase(url) async{
     var dbTimeKey = new DateTime.now();
     var formatDate = new DateFormat('d MMM, yyyy');
     var formatTime = new DateFormat('EEEE, hh:mm aaa');
@@ -115,22 +116,30 @@ void _onLoading() {
     String date = formatDate.format(dbTimeKey);
     String time = formatTime.format(dbTimeKey);
 
-    DatabaseReference ref = FirebaseDatabase.instance.reference();
+    var uuid = Uuid();
+
+    String uid = uuid.v1();
+    
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final FirebaseUser user = await auth.currentUser();
+    final uids = user.uid;
 
     var data={
+      "key": uids.toString(),
+      "article": _article,
       "image": url,
       "description": _myValue,
       "date": date,
       "time": time,
-      "key": key,
       "prix": _prix,
-      "contact": _contact,
       "categorie": _value,
       "vendue": false,
-      "images": DateTime.now().toString()
+      "timestamp": FieldValue.serverTimestamp(),
+      "id": uid
     };
 
-    ref.child("Posts_2").push().set(data);
+    final Firestore firestore = Firestore.instance; 
+    firestore.collection("Article").document(uid).setData(data);
   }
 
   void goToHomePage(){
@@ -148,16 +157,7 @@ void _onLoading() {
     FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
     myInterstitial = buildInterstitialAd()..load();
-    restore();
   }
-
-  restore() async{
-    final SharedPreferences sharedPrefs = await SharedPreferences.getInstance();
-    setState(() {
-      key = (sharedPrefs.getString('key') ?? false);
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -171,18 +171,30 @@ void _onLoading() {
             color: Colors.black
           ),
           onPressed: ()=> Navigator.pop(context),
-        )
+        ),
+        title: Text(
+          "Publication d'article",
+          style: TextStyle(color: Colors.black)
+          )
       ),
 
       body: new Center
       (
-        child: sampleImage == null ? Text("Selectionner une image"): enableUpload(),
+        child: sampleImage == null ? 
+        Text("Selectionner une image"): 
+        Padding(
+          padding: EdgeInsets.all(15.0),
+          child: enableUpload()),
       ),
 
       floatingActionButton: new FloatingActionButton(
-        onPressed: getImage,
+        backgroundColor: Colors.white,
+        onPressed: sampleImage == null ? getImage : null,
         tooltip: 'Ajouter une image',
-        child: new Icon(Icons.add_a_photo),
+        child: sampleImage == null ? new Icon(
+          FontAwesomeIcons.solidImages,
+          color: Colors.black
+          ) : null,
       ),
     );
   }
@@ -196,6 +208,18 @@ void _onLoading() {
         child:Column(
         children: <Widget>[
           Image.file(sampleImage, height: 250.0, width: MediaQuery.of(context).size.width, fit: BoxFit.cover,),
+
+          TextFormField(
+            decoration: new InputDecoration(labelText: 'Article'),
+
+            validator: (value){
+              return value.isEmpty ? 'Le nom de l\'article est requise' : null;
+            },
+
+            onSaved: (value){
+              return _article = value;
+            },
+          ),
 
           SizedBox(height: 15.0,),
 
@@ -225,20 +249,6 @@ void _onLoading() {
             },
           ),
 
-          SizedBox(height: 15.0,),
-
-          TextFormField(
-            decoration: new InputDecoration(labelText: 'N° Téléphone'),
-
-            validator: (value){
-              return value.isEmpty ? 'N° Téléphone requise' : null;
-            },
-
-            onSaved: (value){
-              return _contact = value;
-            },
-          ),
-
           SizedBox(height: 15.0),
 
           DropdownButton<String>(
@@ -247,9 +257,9 @@ void _onLoading() {
                       children: <Widget>[
                         Icon(Icons.all_inclusive),
                         SizedBox(width:5.0),
-                        Text("Toutes les categories", 
+                        Text("Autres", 
                         style: new TextStyle(fontSize: 20.0, color: Colors.black))]),
-                        value: "Tous"),
+                        value: "Autres"),
 
                     DropdownMenuItem<String>(child: Row(
                       children: <Widget>[
@@ -286,12 +296,6 @@ void _onLoading() {
                         Text("Maison")]),
                         value: "Maison"),
 
-                    DropdownMenuItem<String>(child: Row(
-                      children: <Widget>[
-                        Icon(Icons.info_outline),
-                        SizedBox(width:5.0),
-                        Text("Autres produits")]),
-                        value: "Autres"),
                   ],
             onChanged: (String value){
             setState(() {
@@ -302,9 +306,9 @@ void _onLoading() {
                       children: <Widget>[
                         Icon(Icons.all_inclusive),
                         SizedBox(width:5.0),
-                        Text("Toutes les categories", 
+                        Text("Autres", 
                         style: new TextStyle(fontSize: 20.0, color: Colors.black))]),
-                        value: "Tous"),
+                        value: "Autres"),
             value: _value,
           ),
 
