@@ -36,8 +36,8 @@ class ProductTitleWithImage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
                       product.image,
-                      height: 150.0,
-                      width: 110.0,
+                      height: MediaQuery.of(context).size.width / 2,
+                      width: MediaQuery.of(context).size.width / 3,
                       fit: BoxFit.cover
                   ),
               )

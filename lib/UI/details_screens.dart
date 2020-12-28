@@ -15,7 +15,7 @@ class DetailsScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // each product have a color
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.white,
       appBar: buildAppBar(context),
       body: Bodys(product: product, users: users),
     );

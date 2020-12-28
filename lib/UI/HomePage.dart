@@ -125,12 +125,13 @@ class _HomePageState extends State<HomePage>{
   List<Categories> categories = []; 
   List<Products> produits = [];
   Users users;
+  Users userss;
 
   void liste_art() async {
     if (_categorisation == null){
       produits = [];
 
-      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp');
+      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
 
     collectionReference
     .snapshots()
@@ -153,8 +154,9 @@ class _HomePageState extends State<HomePage>{
     } else {
       produits = [];
 
-    Firestore.instance
-    .collection('Article')
+      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
+
+    collectionReference
     .where('categorie', isEqualTo: _categorisation)
     .snapshots()
     .listen((data) =>
@@ -324,14 +326,32 @@ Widget Body (context) {
                 ),
                 itemBuilder: (context, index) => ItemCard(
                       product: produits[index],
-                      press: ()=> Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailsScreen(
-                              product: produits[index],
-                              users: users
-                            ),
-                         )),
+                      press: (){ 
+                        Firestore.instance
+                          .collection('Users')
+                          .where('key', isEqualTo: produits[index].key)
+                          .snapshots()
+                          .listen((data) =>
+                              data.documents.forEach((doc) { setState(() {
+                                userss = Users(
+                                  key: doc['key'],
+                                  email: doc['email'],
+                                  telephone: doc['telephone'],
+                                  name: doc['name']
+                                );
+
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailsScreen(
+                                      product: produits[index],
+                                      users: userss
+                                    ),
+                                ));
+
+                              });
+                              }));
+                         }
                     )),
           ),
         ),
@@ -433,7 +453,7 @@ class ItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Hero(
-                tag: "${product.key}",
+                tag: "${product.image}",
                 child: Image.network(
                   product.image,
                   fit: BoxFit.fitWidth,

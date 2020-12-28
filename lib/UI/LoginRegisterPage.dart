@@ -167,8 +167,9 @@ class _LoginRegisterState extends State<LoginRegisterPage>
 
   Widget _buildSignIn(BuildContext context){
       return Container(
-        padding: EdgeInsets.only(top: 23.0),
+        padding: EdgeInsets.only(top: 40.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Stack(
               alignment: Alignment.topCenter,
@@ -337,8 +338,9 @@ class _LoginRegisterState extends State<LoginRegisterPage>
 
   Widget _buildSignUp(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 23.0),
+      padding: EdgeInsets.only(top: 40.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Stack(
             alignment: Alignment.topCenter,

@@ -30,16 +30,24 @@
             {
               "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "213542070841-6se6uai27pss1doglm3emc10vml7l0c4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "cd.belhanda.dealtouts"
+              }
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2236935133711461~5946003892"
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:213542070841:android:335f9eb37f5c274b18bbe8",
+        "mobilesdk_app_id": "1:213542070841:android:03bc3f5fd24bd3b418bbe8",
         "android_client_info": {
-          "package_name": "cd.belhanda.imbisha"
+          "package_name": "cd.belhanda.dealtouts"
         }
       },
       "oauth_client": [
@@ -59,6 +67,13 @@
             {
               "client_id": "213542070841-b1j42306qq7jbnsesmn2emoh44rr08ks.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "213542070841-6se6uai27pss1doglm3emc10vml7l0c4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "cd.belhanda.dealtouts"
+              }
             }
           ]
         }

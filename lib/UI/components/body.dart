@@ -16,10 +16,11 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(
-                    top: 3.0,
+                    top: 15.0,
                     left: kDefaultPaddin,
                     right: kDefaultPaddin,
                   ),
