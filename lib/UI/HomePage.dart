@@ -10,14 +10,13 @@ import '../UI/DialogBox.dart';
 import '../UI/PhotoUploadPage.dart';
 import 'package:flutter/material.dart';
 import '../Util/Authentification.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'About.dart';
 import 'Categories.dart';
 import 'details_screen.dart';
 
-const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
-const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
+const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~8206756914';
+const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/1425085514';
 
 class HomePage extends StatefulWidget{
 
@@ -37,7 +36,6 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage>{
 
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   final AuthImplementation auth = new Auth();
@@ -72,20 +70,6 @@ class _HomePageState extends State<HomePage>{
   FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
   myInterstitial = buildInterstitialAd()..load();
-
-        _firebaseMessaging.getToken().then((token) => print(token));
-
-        _firebaseMessaging.configure(
-    	onMessage: (Map<String, dynamic> message) async {
-        showInSnackBar(message['notification']['body']);
-    	},
-
-    	onLaunch: (Map<String, dynamic> message) {
-    	},
-
-    	onResume: (Map<String, dynamic> message) {
-    	}
-    );
 
     categories.clear();
     Database.FirebaseDatabase database = new Database.FirebaseDatabase();
@@ -473,7 +457,7 @@ class ItemCard extends StatelessWidget {
             "${product.prix}",
             style: TextStyle(fontWeight: FontWeight.bold),
           )
-        ],
+                  ],
       ),
     );
   }

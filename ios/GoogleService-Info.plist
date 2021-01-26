@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:213542070841:ios:f148c4df4f84722518bbe8</string>
+	<string>1:213542070841:ios:8de367ded976554a18bbe8</string>
 	<key>DATABASE_URL</key>
 	<string>https://dealtout-cb535.firebaseio.com</string>
 </dict>

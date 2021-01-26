@@ -6,8 +6,8 @@ import '../Util/Authentification.dart';
 import 'DialogBox.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
-const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
+const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~8206756914';
+const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/1425085514';
 
 class LoginRegisterPage extends StatefulWidget{
   LoginRegisterPage({
