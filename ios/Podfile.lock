@@ -417,7 +417,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  image_picker: 66aa71bc96850a90590a35d4c4a2907b0d823109
+  image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
@@ -425,6 +425,6 @@ SPEC CHECKSUMS:
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
-PODFILE CHECKSUM: cf0c950f7e9a456b4e325f5b8fc0f98906a3705a
+PODFILE CHECKSUM: 264b42fc1187bfff17436a07b687b84b53363bed
 
 COCOAPODS: 1.10.1
