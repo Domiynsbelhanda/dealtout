@@ -89,17 +89,17 @@ class _Your_Publication extends State<YourPublication>{
   void liste_art() async {
 
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
       produits = [];
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('Article')
     .where('key', isEqualTo: uids)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           produits.add(Products(
             article: doc['article'],
             categorie: doc['categorie'],
@@ -119,15 +119,15 @@ class _Your_Publication extends State<YourPublication>{
 
   void user_data() async{
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('Users')
     .where('key', isEqualTo: uids)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           users = Users(
             key: doc['key'],
             email: doc['email'],

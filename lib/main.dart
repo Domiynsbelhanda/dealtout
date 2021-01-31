@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,8 +7,10 @@ import 'Util/Authentification.dart';
 import 'Util/Mapping.dart';
 import 'package:splashscreen/splashscreen.dart';
     
-    void main(){
-    runApp(new DealApp(),);
+    Future<void> main() async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
+      runApp(new DealApp(),);
     }
 
 class MyApp extends StatefulWidget {
@@ -26,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return new SplashScreen(
       navigateAfterFuture: loadFromFuture(),
-      seconds: 20,
+      seconds: 15,
       title: new Text('Deal Tout',
       style: GoogleFonts.montserrat(
         color: Colors.white,

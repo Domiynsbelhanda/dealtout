@@ -115,12 +115,12 @@ class _HomePageState extends State<HomePage>{
     if (_categorisation == null){
       produits = [];
 
-      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
+      Query collectionReference = FirebaseFirestore.instance.collection("Article").orderBy('timestamp', descending: false);
 
     collectionReference
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           produits.add(Products(
             article: doc['article'],
             categorie: doc['categorie'],
@@ -138,13 +138,13 @@ class _HomePageState extends State<HomePage>{
     } else {
       produits = [];
 
-      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
+      Query collectionReference = FirebaseFirestore.instance.collection("Article").orderBy('timestamp', descending: false);
 
     collectionReference
     .where('categorie', isEqualTo: _categorisation)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           produits.add(Products(
             article: doc['article'],
             categorie: doc['categorie'],
@@ -165,15 +165,15 @@ class _HomePageState extends State<HomePage>{
 
   void user_data() async{
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('Users')
     .where('key', isEqualTo: uids)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           users = Users(
             key: doc['key'],
             email: doc['email'],
@@ -311,12 +311,12 @@ Widget Body (context) {
                 itemBuilder: (context, index) => ItemCard(
                       product: produits[index],
                       press: (){ 
-                        Firestore.instance
+                        FirebaseFirestore.instance
                           .collection('Users')
                           .where('key', isEqualTo: produits[index].key)
                           .snapshots()
                           .listen((data) =>
-                              data.documents.forEach((doc) { setState(() {
+                              data.docs.forEach((doc) { setState(() {
                                 userss = Users(
                                   key: doc['key'],
                                   email: doc['email'],

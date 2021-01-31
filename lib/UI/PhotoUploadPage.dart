@@ -92,13 +92,13 @@ void _onLoading() {
     },
   );
     new Future.delayed(new Duration(seconds: 3), () async {
-    final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Datas");
+    final Reference postImageRef = FirebaseStorage.instance.ref().child("Datas");
 
       var timeKey = new DateTime.now();
 
-      final StorageUploadTask uploadTask = postImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
+      final TaskSnapshot uploadTask = await postImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
 
-      var ImageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
+      var ImageUrl = await uploadTask.ref.getDownloadURL();
 
       url = ImageUrl.toString();
       saveToDatabase(url);
@@ -121,7 +121,7 @@ void _onLoading() {
     String uid = uuid.v1();
     
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
     var data={
@@ -138,8 +138,8 @@ void _onLoading() {
       "id": uid
     };
 
-    final Firestore firestore = Firestore.instance; 
-    firestore.collection("Article").document(uid).setData(data);
+    final FirebaseFirestore firestore = FirebaseFirestore.instance; 
+    firestore.collection("Article").doc(uid).set(data);
   }
 
   void goToHomePage(){

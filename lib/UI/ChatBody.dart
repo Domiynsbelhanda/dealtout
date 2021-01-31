@@ -19,7 +19,7 @@ class _ChatState extends State<Chat>{
   String keyA;
   String keyDisc;
   _ChatState({this.keyDe, this.keyA, this.keyDisc});
-  final Firestore _firestore = Firestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   
   TextEditingController messageController = TextEditingController();
   ScrollController scrollController = ScrollController();
@@ -36,16 +36,16 @@ class _ChatState extends State<Chat>{
   }
 
   void char() async{
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('message')
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           datas = doc['a'];
           datas2 = doc['de'];
 
           if((datas == keyDe || datas == keyA) && (datas2 == keyDe || datas2 == keyA)){
-            uid = doc.documentID;
+            uid = doc.id;
           }
         });
         }));
@@ -53,16 +53,16 @@ class _ChatState extends State<Chat>{
 
   Future<void> callback() async{
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('message')
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) {
+        data.docs.forEach((doc) {
           datas = doc['a'];
           datas2 = doc['de'];
 
           if((datas == keyDe || datas == keyA) && (datas2 == keyDe || datas2 == keyA)){
-            uid = doc.documentID;
+            uid = doc.id;
             verifie = false;
           } else{
             verifie = true;
@@ -70,11 +70,11 @@ class _ChatState extends State<Chat>{
         }));
 
     if (verifie) {
-      var user = await FirebaseAuth.instance.currentUser();
+      var user = await FirebaseAuth.instance.currentUser;
       uidd = user.uid;
       uid = uidd;
       await
-      _firestore.collection('message').document(uid).setData({
+      _firestore.collection('message').doc(uid).set({
         'de': keyDe,
         'a': keyA,
       });
@@ -88,7 +88,7 @@ class _ChatState extends State<Chat>{
 
     if(messageController.text.length > 0){
       await
-      _firestore.collection('message').document(uid).collection('discussion').add({
+      _firestore.collection('message').doc(uid).collection('discussion').add({
         'text': messageController.text,
         'de': keyDe,
         'a': keyA,
@@ -117,18 +117,18 @@ class _ChatState extends State<Chat>{
               child: StreamBuilder<QuerySnapshot>(
                 stream: _firestore
                           .collection("message")
-                          .document(uid)
+                          .doc(uid)
                           .collection('discussion')
                           .orderBy('heure', descending: true)
                           .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
                   if(!snapshot.hasData) return const Text('En cours de chargement ...');
-                  final int messageCount = snapshot.data.documents.length;
+                  final int messageCount = snapshot.data.docs.length;
                   return ListView.builder(
                     reverse: true,
                     itemCount: messageCount,
                     itemBuilder: (_, int index){
-                      final DocumentSnapshot document = snapshot.data.documents[index];
+                      final DocumentSnapshot document = snapshot.data.docs[index];
                       final dynamic us = document['de'];
                       final dynamic message = document['text'];
                       return Container(
