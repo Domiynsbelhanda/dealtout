@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,7 +33,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>{
   String _article;
   final formKey = new GlobalKey<FormState>();
 
-  InterstitialAd myInterstitial;
+  /*InterstitialAd myInterstitial;
 
   InterstitialAd buildInterstitialAd(){
     return InterstitialAd(
@@ -47,7 +46,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>{
         }
       }
     );
-  }
+  }*/
 
   Future getImage() async{
     var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -102,8 +101,8 @@ void _onLoading() {
 
       url = ImageUrl.toString();
       saveToDatabase(url);
-      myInterstitial = buildInterstitialAd()..load();
-      myInterstitial..show();
+      //myInterstitial = buildInterstitialAd()..load();
+      //myInterstitial..show();
       goToHomePage();
   });
 }
@@ -154,9 +153,9 @@ void _onLoading() {
   @override
   void initState(){
     super.initState();
-    FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
+    //FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
-    myInterstitial = buildInterstitialAd()..load();
+    //myInterstitial = buildInterstitialAd()..load();
   }
 
   @override

@@ -2,7 +2,7 @@ import 'package:DEALTOUT/Styles/Constants.dart';
 import 'package:DEALTOUT/UI/UserPage.dart';
 import 'package:DEALTOUT/models/Product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_admob/firebase_admob.dart';
+//import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart' as Database;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage>{
 
   String _categorisation;
   
-  InterstitialAd myInterstitial;
+  /*InterstitialAd myInterstitial;
 
 
   InterstitialAd buildInterstitialAd(){
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage>{
         }
       }
     );
-  }
+  }*/
 
   @override
   void dispose() {
@@ -67,9 +67,9 @@ class _HomePageState extends State<HomePage>{
   void initState(){
   super.initState();
 
-  FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
+  /*FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
-  myInterstitial = buildInterstitialAd()..load();
+  myInterstitial = buildInterstitialAd()..load();*/
 
     categories.clear();
     Database.FirebaseDatabase database = new Database.FirebaseDatabase();
