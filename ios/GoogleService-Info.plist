@@ -13,21 +13,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>cd.belhanda.dealtout</string>
+	<string>com.belhanda.dealtout</string>
 	<key>PROJECT_ID</key>
 	<string>dealtout-cb535</string>
 	<key>STORAGE_BUCKET</key>
 	<string>dealtout-cb535.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:213542070841:ios:8de367ded976554a18bbe8</string>
 	<key>DATABASE_URL</key>
