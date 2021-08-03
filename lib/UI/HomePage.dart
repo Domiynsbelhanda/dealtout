@@ -2,7 +2,7 @@ import 'package:DEALTOUT/Styles/Constants.dart';
 import 'package:DEALTOUT/UI/UserPage.dart';
 import 'package:DEALTOUT/models/Product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_admob/firebase_admob.dart';
+//import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart' as Database;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,14 +10,13 @@ import '../UI/DialogBox.dart';
 import '../UI/PhotoUploadPage.dart';
 import 'package:flutter/material.dart';
 import '../Util/Authentification.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'About.dart';
 import 'Categories.dart';
 import 'details_screen.dart';
 
-const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
-const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
+const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~8206756914';
+const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/1425085514';
 
 class HomePage extends StatefulWidget{
 
@@ -37,14 +36,13 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage>{
 
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   final AuthImplementation auth = new Auth();
 
   String _categorisation;
   
-  InterstitialAd myInterstitial;
+  /*InterstitialAd myInterstitial;
 
 
   InterstitialAd buildInterstitialAd(){
@@ -58,7 +56,7 @@ class _HomePageState extends State<HomePage>{
         }
       }
     );
-  }
+  }*/
 
   @override
   void dispose() {
@@ -69,23 +67,9 @@ class _HomePageState extends State<HomePage>{
   void initState(){
   super.initState();
 
-  FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
+  /*FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
-  myInterstitial = buildInterstitialAd()..load();
-
-        _firebaseMessaging.getToken().then((token) => print(token));
-
-        _firebaseMessaging.configure(
-    	onMessage: (Map<String, dynamic> message) async {
-        showInSnackBar(message['notification']['body']);
-    	},
-
-    	onLaunch: (Map<String, dynamic> message) {
-    	},
-
-    	onResume: (Map<String, dynamic> message) {
-    	}
-    );
+  myInterstitial = buildInterstitialAd()..load();*/
 
     categories.clear();
     Database.FirebaseDatabase database = new Database.FirebaseDatabase();
@@ -131,12 +115,12 @@ class _HomePageState extends State<HomePage>{
     if (_categorisation == null){
       produits = [];
 
-      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
+      Query collectionReference = FirebaseFirestore.instance.collection("Article").orderBy('timestamp', descending: false);
 
     collectionReference
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           produits.add(Products(
             article: doc['article'],
             categorie: doc['categorie'],
@@ -154,13 +138,13 @@ class _HomePageState extends State<HomePage>{
     } else {
       produits = [];
 
-      Query collectionReference = Firestore.instance.collection("Article").orderBy('timestamp', descending: false);
+      Query collectionReference = FirebaseFirestore.instance.collection("Article").orderBy('timestamp', descending: false);
 
     collectionReference
     .where('categorie', isEqualTo: _categorisation)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           produits.add(Products(
             article: doc['article'],
             categorie: doc['categorie'],
@@ -181,15 +165,15 @@ class _HomePageState extends State<HomePage>{
 
   void user_data() async{
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('Users')
     .where('key', isEqualTo: uids)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           users = Users(
             key: doc['key'],
             email: doc['email'],
@@ -327,12 +311,12 @@ Widget Body (context) {
                 itemBuilder: (context, index) => ItemCard(
                       product: produits[index],
                       press: (){ 
-                        Firestore.instance
+                        FirebaseFirestore.instance
                           .collection('Users')
                           .where('key', isEqualTo: produits[index].key)
                           .snapshots()
                           .listen((data) =>
-                              data.documents.forEach((doc) { setState(() {
+                              data.docs.forEach((doc) { setState(() {
                                 userss = Users(
                                   key: doc['key'],
                                   email: doc['email'],
@@ -473,7 +457,7 @@ class ItemCard extends StatelessWidget {
             "${product.prix}",
             style: TextStyle(fontWeight: FontWeight.bold),
           )
-        ],
+                  ],
       ),
     );
   }

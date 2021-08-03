@@ -53,9 +53,9 @@ class Bodys extends StatelessWidget {
                               borderRadius: BorderRadius.circular(18)),
                           color: Colors.white,
                           onPressed: () async {
-                            final Firestore _firestore = Firestore.instance;
+                            final FirebaseFirestore _firestore = FirebaseFirestore.instance;
                             await
-                            _firestore.collection('Article').document(product.id).delete();
+                            _firestore.collection('Article').doc(product.id).delete();
                             Navigator.push(
                               context,
                               MaterialPageRoute(

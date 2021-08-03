@@ -1,4 +1,4 @@
-import 'package:firebase_admob/firebase_admob.dart';
+//import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,8 +6,8 @@ import '../Util/Authentification.dart';
 import 'DialogBox.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
-const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
+const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~8206756914';
+const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/1425085514';
 
 class LoginRegisterPage extends StatefulWidget{
   LoginRegisterPage({
@@ -36,7 +36,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  InterstitialAd myInterstitial;
+  /*IterstitialAd myInterstitial;
 
   InterstitialAd buildInterstitialAd(){
     return InterstitialAd(
@@ -49,7 +49,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
         }
       }
     );
-  }
+  }*/
 
   final FocusNode myFocusNodeEmailLogin = FocusNode();
   final FocusNode myFocusNodePasswordLogin = FocusNode();
@@ -106,7 +106,7 @@ class _LoginRegisterState extends State<LoginRegisterPage>
   @override
   void initState(){
     super.initState();
-     myInterstitial = buildInterstitialAd()..load();
+     //myInterstitial = buildInterstitialAd()..load();
   }
 
   double height, width;
@@ -287,8 +287,8 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                           loginemailController.text,
                           loginPasswordController.text,
                           context, _scaffoldKey);
-                          myInterstitial = buildInterstitialAd()..load();
-                          myInterstitial..show();
+                          //myInterstitial = buildInterstitialAd()..load();
+                          //myInterstitial..show();
                         }
                       }
                     )
@@ -555,8 +555,8 @@ class _LoginRegisterState extends State<LoginRegisterPage>
                             context,
                             _scaffoldKey
                           );
-                          myInterstitial = buildInterstitialAd()..load();
-                          myInterstitial..show();
+                          //myInterstitial = buildInterstitialAd()..load();
+                          //myInterstitial..show();
                           }
                     }
                 ),

@@ -29,7 +29,7 @@ class Auth implements AuthImplementation{
 
   Future<String> SignIn(String email, String password, context, _scaffoldKey) async{
     try{
-      FirebaseUser user = (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password)).user;
+      User user = (await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password)).user;
       showInSnackBar("Connectée.", _scaffoldKey, context);
         Navigator.push(
           context,
@@ -61,7 +61,7 @@ class Auth implements AuthImplementation{
   Future<String> SignUp(String email, String password, String telephone, String name, context, _scaffoldKey) async{
     try{
 
-      FirebaseUser user = (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user;
+      User user = (await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password)).user;
 
       var data={
         "key": user.uid.toString(),
@@ -70,9 +70,9 @@ class Auth implements AuthImplementation{
         "telephone": telephone,
         "name": name,};
 
-        final Firestore _firestore = Firestore.instance;
+        final FirebaseFirestore _firestore = FirebaseFirestore.instance;
         await
-        _firestore.collection('Users').document(user.uid.toString()).setData(data);
+        _firestore.collection('Users').doc(user.uid.toString()).set(data);
         showInSnackBar("Inscription effectuée.", _scaffoldKey, context);
 
         Navigator.push(
@@ -95,7 +95,7 @@ class Auth implements AuthImplementation{
   }
 
   Future<String> getCurrentUser() async {
-    FirebaseUser user = await _firebaseAuth.currentUser();
+    User user = await _firebaseAuth.currentUser;
     return user.uid;
   }
 

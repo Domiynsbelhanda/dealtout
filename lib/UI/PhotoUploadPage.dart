@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,8 +12,8 @@ import 'dart:io';
 
 import 'HomePage.dart';
 
-const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~9280199540';
-const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/8171808024';
+const String AD_MOB_APP_ID = 'ca-app-pub-2474010233453501~8206756914';
+const String AD_MOB_AD_ID = 'ca-app-pub-2474010233453501/1425085514';
 
 class UploadPhotoPage extends StatefulWidget{
 
@@ -34,7 +33,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>{
   String _article;
   final formKey = new GlobalKey<FormState>();
 
-  InterstitialAd myInterstitial;
+  /*InterstitialAd myInterstitial;
 
   InterstitialAd buildInterstitialAd(){
     return InterstitialAd(
@@ -47,7 +46,7 @@ class _UploadPhotoPageState extends State<UploadPhotoPage>{
         }
       }
     );
-  }
+  }*/
 
   Future getImage() async{
     var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -92,18 +91,18 @@ void _onLoading() {
     },
   );
     new Future.delayed(new Duration(seconds: 3), () async {
-    final StorageReference postImageRef = FirebaseStorage.instance.ref().child("Datas");
+    final Reference postImageRef = FirebaseStorage.instance.ref().child("Datas");
 
       var timeKey = new DateTime.now();
 
-      final StorageUploadTask uploadTask = postImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
+      final TaskSnapshot uploadTask = await postImageRef.child(timeKey.toString() + ".jpg").putFile(sampleImage);
 
-      var ImageUrl = await (await uploadTask.onComplete).ref.getDownloadURL();
+      var ImageUrl = await uploadTask.ref.getDownloadURL();
 
       url = ImageUrl.toString();
       saveToDatabase(url);
-      myInterstitial = buildInterstitialAd()..load();
-      myInterstitial..show();
+      //myInterstitial = buildInterstitialAd()..load();
+      //myInterstitial..show();
       goToHomePage();
   });
 }
@@ -121,7 +120,7 @@ void _onLoading() {
     String uid = uuid.v1();
     
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
     var data={
@@ -138,8 +137,8 @@ void _onLoading() {
       "id": uid
     };
 
-    final Firestore firestore = Firestore.instance; 
-    firestore.collection("Article").document(uid).setData(data);
+    final FirebaseFirestore firestore = FirebaseFirestore.instance; 
+    firestore.collection("Article").doc(uid).set(data);
   }
 
   void goToHomePage(){
@@ -154,9 +153,9 @@ void _onLoading() {
   @override
   void initState(){
     super.initState();
-    FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
+    //FirebaseAdMob.instance.initialize(appId: AD_MOB_APP_ID);
 
-    myInterstitial = buildInterstitialAd()..load();
+    //myInterstitial = buildInterstitialAd()..load();
   }
 
   @override

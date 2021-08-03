@@ -36,15 +36,15 @@ class _Profile extends State<Profile>{
 
   void user_data() async{
     final FirebaseAuth auth = FirebaseAuth.instance;
-    final FirebaseUser user = await auth.currentUser();
+    final User user = await auth.currentUser;
     final uids = user.uid;
 
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('Users')
     .where('key', isEqualTo: uids)
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           users = Users(
             key: doc['key'],
             email: doc['email'],
@@ -198,27 +198,27 @@ class _Profile extends State<Profile>{
                     var data={
                       "telephone": phone.text
                     };
-                    final Firestore _firestore = Firestore.instance;
+                    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
                     await
-                    _firestore.collection('Users').document(users.key).updateData(data);
+                    _firestore.collection('Users').doc(users.key).update(data);
 
                     showInSnackBar("Modification du numéro de téléphone");
                   } else if (name.text.isNotEmpty && phone.text.isEmpty){
                     var data={
                       "name": name.text
                     };
-                    final Firestore _firestore = Firestore.instance;
+                    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
                     await
-                    _firestore.collection('Users').document(users.key).updateData(data);
+                    _firestore.collection('Users').doc(users.key).update(data);
                       showInSnackBar("Modification de votre pseudo");
                   } else if (name.text.isNotEmpty && phone.text.isNotEmpty){
                     var data={
                       "telephone": phone.text,
                       "name": name.text
                     };
-                    final Firestore _firestore = Firestore.instance;
+                    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
                     await
-                    _firestore.collection('Users').document(users.key).updateData(data);
+                    _firestore.collection('Users').doc(users.key).update(data);
                     showInSnackBar("Modification du pseudo et du numéro");
                   }
                 },

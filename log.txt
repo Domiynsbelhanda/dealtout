@@ -1,0 +1,757 @@
+Building com.belhanda.dealtout for device (ios-release)...
+Automatically signing iOS for device deployment using specified development team in Xcode project: X6TVYR2T3Q
+Running Xcode build...                                          
+ └─Compiling, linking and signing...                        10,3s
+Xcode build done.                                           31,7s
+Failed to build iOS app
+Error output from Xcode build:
+↳
+    ** BUILD FAILED **
+
+
+Xcode's output:
+↳
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:17:79: warning: values of type 'NSInteger' should not be used as format arguments; add an explicit cast to 'long' instead [-Wformat]
+      return [FlutterError errorWithCode:[NSString stringWithFormat:@"Error %ld", error.code]
+                                                                            ~~~   ^~~~~~~~~~
+                                                                            %ld   (long)
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:132:43: warning: 'FIRMessagingRemoteMessage' is deprecated: FCM direct channel is deprecated, please use APNs for downstream message handling. [-Wdeprecated-declarations]
+    - (void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+                                              ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:219:1: note: 'FIRMessagingRemoteMessage' has been explicitly marked deprecated here
+    __deprecated_msg(
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:213:24: warning: 'FIRMessagingRemoteMessage' is deprecated: FCM direct channel is deprecated, please use APNs for downstream message handling. [-Wdeprecated-declarations]
+        didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+                           ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:219:1: note: 'FIRMessagingRemoteMessage' has been explicitly marked deprecated here
+    __deprecated_msg(
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:79:30: warning: 'shouldEstablishDirectChannel' is deprecated: FCM direct channel is deprecated, please use APNs channel for downstream message delivery. [-Wdeprecated-declarations]
+        [FIRMessaging messaging].shouldEstablishDirectChannel = true;
+                                 ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:283:56: note: 'shouldEstablishDirectChannel' has been explicitly marked deprecated here
+    @property(nonatomic) BOOL shouldEstablishDirectChannel DEPRECATED_MSG_ATTRIBUTE(
+                                                           ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:182:64: note: expanded from macro 'DEPRECATED_MSG_ATTRIBUTE'
+                #define DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                                   ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:98:21: warning: 'FIRInstanceID' is deprecated: FIRInstanceID is deprecated, please use FIRInstallations for installation identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID]
+                        ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:190:1: note: 'FIRInstanceID' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceID is deprecated, please use FIRInstallations for installation "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:99:33: warning: 'FIRInstanceIDResult' is deprecated: FIRInstanceIDResult is deprecated, please use FIRInstallations for app instance identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+            instanceIDWithHandler:^(FIRInstanceIDResult *_Nullable instanceIDResult,
+                                    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:153:1: note: 'FIRInstanceIDResult' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceIDResult is deprecated, please use FIRInstallations "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:99:9: warning: 'instanceIDWithHandler:' is deprecated: Use `Installations.installationID(completion:)` to get the app instance identifier instead. Use `Messaging.token(completion:)` to get FCM registration token instead. [-Wdeprecated-declarations]
+            instanceIDWithHandler:^(FIRInstanceIDResult *_Nullable instanceIDResult,
+            ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:215:5: note: 'instanceIDWithHandler:' has been explicitly marked deprecated here
+        __deprecated_msg("Use `Installations.installationID(completion:)` to get the app instance "
+        ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:109:21: warning: 'FIRInstanceID' is deprecated: FIRInstanceID is deprecated, please use FIRInstallations for installation identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID] deleteIDWithHandler:^void(NSError *_Nullable error) {
+                        ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:190:1: note: 'FIRInstanceID' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceID is deprecated, please use FIRInstallations for installation "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:109:33: warning: 'deleteIDWithHandler:' is deprecated: Use `Installations.delete(completion:)` instead. Also check `Messaging.deleteData(completion:)`if you want to delete FCM registration token. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID] deleteIDWithHandler:^void(NSError *_Nullable error) {
+                                    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:321:33: note: 'deleteIDWithHandler:' has been explicitly marked deprecated here
+                                    __deprecated_msg("Use `Installations.delete(completion:)` instead. "
+                                    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:133:52: warning: 'appData' is deprecated [-Wdeprecated-declarations]
+      [self didReceiveRemoteNotification:remoteMessage.appData];
+                                                       ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:226:62: note: 'appData' has been explicitly marked deprecated here
+    @property(nonatomic, readonly, strong) NSDictionary *appData DEPRECATED_ATTRIBUTE;
+                                                                 ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:180:60: note: expanded from macro 'DEPRECATED_ATTRIBUTE'
+            #define DEPRECATED_ATTRIBUTE        __attribute__((deprecated))
+                                                               ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:212:1: warning: implementing deprecated method [-Wdeprecated-implementations]
+    - (void)messaging:(FIRMessaging *)messaging
+    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:253:1: note: method 'messaging:didReceiveMessage:' declared here
+    - (void)messaging:(FIRMessaging *)messaging
+    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:214:63: warning: 'appData' is deprecated [-Wdeprecated-declarations]
+      [_channel invokeMethod:@"onMessage" arguments:remoteMessage.appData];
+                                                                  ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:226:62: note: 'appData' has been explicitly marked deprecated here
+    @property(nonatomic, readonly, strong) NSDictionary *appData DEPRECATED_ATTRIBUTE;
+                                                                 ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:180:60: note: expanded from macro 'DEPRECATED_ATTRIBUTE'
+            #define DEPRECATED_ATTRIBUTE        __attribute__((deprecated))
+                                                               ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:178:1: warning: conflicting return type in implementation of 'application:didReceiveRemoteNotification:fetchCompletionHandler:': 'BOOL' (aka 'signed char') vs 'bool' [-Wmismatched-return-types]
+    - (bool)application:(UIApplication *)application
+    ^  ~~~~
+    In module 'Flutter' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Flutter/Flutter.framework/Headers/FlutterPlugin.h:91:1: note: previous definition is here
+    - (BOOL)application:(UIApplication*)application
+    ^  ~~~~
+    13 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-3.1.5/ios/Classes/FLTFirebaseDatabasePlugin.m:12:79: warning: values of type 'NSInteger' should not be used as format arguments; add an explicit cast to 'long' instead [-Wformat]
+      return [FlutterError errorWithCode:[NSString stringWithFormat:@"Error %ld", error.code]
+                                                                            ~~~   ^~~~~~~~~~
+                                                                            %ld   (long)
+    1 warning generated.
+    3 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:80:37: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd
+                                        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:87:37: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd
+                                        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:95:49: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidReceiveAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:100:44: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidOpen:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                               ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:104:52: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidStartPlaying:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                       ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:108:55: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidCompletePlaying:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:112:45: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidClose:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:117:57: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdWillLeaveApplication:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                            ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:39:28: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+        [GADRewardBasedVideoAd sharedInstance].delegate = self;
+                               ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:56:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] loadRequest:[factory createRequest]
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:61:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance]
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:66:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] setUserIdentifier:userIdentifier];
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:70:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] setCustomRewardString:customRewardString];
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    13 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:71:13: warning: 'testDevices' is deprecated: Use GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers. [-Wdeprecated-declarations]
+        request.testDevices = testDevices;
+                ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:88:71: note: 'testDevices' has been explicitly marked deprecated here
+    @property(nonatomic, copy, nullable) NSArray<NSString *> *testDevices GAD_DEPRECATED_MSG_ATTRIBUTE(
+                                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:91:15: warning: 'birthday' is deprecated [-Wdeprecated-declarations]
+          request.birthday =
+                  ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:95:55: note: 'birthday' has been explicitly marked deprecated here
+    @property(nonatomic, copy, nullable) NSDate *birthday GAD_DEPRECATED_ATTRIBUTE;
+                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:33:49: note: expanded from macro 'GAD_DEPRECATED_ATTRIBUTE'
+    #define GAD_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
+                                                    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:106:19: warning: 'gender' is deprecated [-Wdeprecated-declarations]
+              request.gender = genderValue;
+                      ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:92:47: note: 'gender' has been explicitly marked deprecated here
+    @property(nonatomic, assign) GADGender gender GAD_DEPRECATED_ATTRIBUTE;
+                                                  ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:33:49: note: expanded from macro 'GAD_DEPRECATED_ATTRIBUTE'
+    #define GAD_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
+                                                    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:116:14: warning: 'tagForChildDirectedTreatment:' is deprecated:  use [GADMobileAds.sharedInstance.requestConfiguration tagForChildDirectedTreatment] [-Wdeprecated-declarations]
+        [request tagForChildDirectedTreatment:childDirected.boolValue];
+                 ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:126:5: note: 'tagForChildDirectedTreatment:' has been explicitly marked deprecated here
+        GAD_DEPRECATED_MSG_ATTRIBUTE(
+        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    4 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTMobileAd.m:39:17: warning: 'configureWithApplicationID:' is deprecated: Use [GADMobileAds.sharedInstance startWithCompletionHandler:] [-Wdeprecated-declarations]
+      [GADMobileAds configureWithApplicationID:appId];
+                    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:161:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADMobileAds.h:82:5: note: 'configureWithApplicationID:' has been explicitly marked deprecated here
+        GAD_DEPRECATED_MSG_ATTRIBUTE("Use [GADMobileAds.sharedInstance startWithCompletionHandler:]");
+        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:161:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    1 warning generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:132:43: warning: 'FIRMessagingRemoteMessage' is deprecated: FCM direct channel is deprecated, please use APNs for downstream message handling. [-Wdeprecated-declarations]
+    - (void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+                                              ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:219:1: note: 'FIRMessagingRemoteMessage' has been explicitly marked deprecated here
+    __deprecated_msg(
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:213:24: warning: 'FIRMessagingRemoteMessage' is deprecated: FCM direct channel is deprecated, please use APNs for downstream message handling. [-Wdeprecated-declarations]
+        didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+                           ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:219:1: note: 'FIRMessagingRemoteMessage' has been explicitly marked deprecated here
+    __deprecated_msg(
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:79:30: warning: 'shouldEstablishDirectChannel' is deprecated: FCM direct channel is deprecated, please use APNs channel for downstream message delivery. [-Wdeprecated-declarations]
+        [FIRMessaging messaging].shouldEstablishDirectChannel = true;
+                                 ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:283:56: note: 'shouldEstablishDirectChannel' has been explicitly marked deprecated here
+    @property(nonatomic) BOOL shouldEstablishDirectChannel DEPRECATED_MSG_ATTRIBUTE(
+                                                           ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:182:64: note: expanded from macro 'DEPRECATED_MSG_ATTRIBUTE'
+                #define DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                                   ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:98:21: warning: 'FIRInstanceID' is deprecated: FIRInstanceID is deprecated, please use FIRInstallations for installation identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID]
+                        ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:190:1: note: 'FIRInstanceID' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceID is deprecated, please use FIRInstallations for installation "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:99:33: warning: 'FIRInstanceIDResult' is deprecated: FIRInstanceIDResult is deprecated, please use FIRInstallations for app instance identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+            instanceIDWithHandler:^(FIRInstanceIDResult *_Nullable instanceIDResult,
+                                    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:153:1: note: 'FIRInstanceIDResult' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceIDResult is deprecated, please use FIRInstallations "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:99:9: warning: 'instanceIDWithHandler:' is deprecated: Use `Installations.installationID(completion:)` to get the app instance identifier instead. Use `Messaging.token(completion:)` to get FCM registration token instead. [-Wdeprecated-declarations]
+            instanceIDWithHandler:^(FIRInstanceIDResult *_Nullable instanceIDResult,
+            ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:215:5: note: 'instanceIDWithHandler:' has been explicitly marked deprecated here
+        __deprecated_msg("Use `Installations.installationID(completion:)` to get the app instance "
+        ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:109:21: warning: 'FIRInstanceID' is deprecated: FIRInstanceID is deprecated, please use FIRInstallations for installation identifier handling and use FIRMessaging for FCM registration token handling. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID] deleteIDWithHandler:^void(NSError *_Nullable error) {
+                        ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:190:1: note: 'FIRInstanceID' has been explicitly marked deprecated here
+    __deprecated_msg("FIRInstanceID is deprecated, please use FIRInstallations for installation "
+    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:109:33: warning: 'deleteIDWithHandler:' is deprecated: Use `Installations.delete(completion:)` instead. Also check `Messaging.deleteData(completion:)`if you want to delete FCM registration token. [-Wdeprecated-declarations]
+        [[FIRInstanceID instanceID] deleteIDWithHandler:^void(NSError *_Nullable error) {
+                                    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:70:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h:321:33: note: 'deleteIDWithHandler:' has been explicitly marked deprecated here
+                                    __deprecated_msg("Use `Installations.delete(completion:)` instead. "
+                                    ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/sys/cdefs.h:191:48: note: expanded from macro '__deprecated_msg'
+            #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+                                                          ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:133:52: warning: 'appData' is deprecated [-Wdeprecated-declarations]
+      [self didReceiveRemoteNotification:remoteMessage.appData];
+                                                       ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:226:62: note: 'appData' has been explicitly marked deprecated here
+    @property(nonatomic, readonly, strong) NSDictionary *appData DEPRECATED_ATTRIBUTE;
+                                                                 ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:180:60: note: expanded from macro 'DEPRECATED_ATTRIBUTE'
+            #define DEPRECATED_ATTRIBUTE        __attribute__((deprecated))
+                                                               ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:212:1: warning: implementing deprecated method [-Wdeprecated-implementations]
+    - (void)messaging:(FIRMessaging *)messaging
+    ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:253:1: note: method 'messaging:didReceiveMessage:' declared here
+    - (void)messaging:(FIRMessaging *)messaging
+    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:214:63: warning: 'appData' is deprecated [-Wdeprecated-declarations]
+      [_channel invokeMethod:@"onMessage" arguments:remoteMessage.appData];
+                                                                  ^
+    In file included from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-5.1.8/ios/Classes/FirebaseMessagingPlugin.m:8:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:74:
+    In file included from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FirebaseMessaging.h:17:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseMessaging/FIRMessaging.h:226:62: note: 'appData' has been explicitly marked deprecated here
+    @property(nonatomic, readonly, strong) NSDictionary *appData DEPRECATED_ATTRIBUTE;
+                                                                 ^
+    In module 'Darwin' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/FirebaseAuth/FIRAuth.h:17:
+    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/include/AvailabilityMacros.h:180:60: note: expanded from macro 'DEPRECATED_ATTRIBUTE'
+            #define DEPRECATED_ATTRIBUTE        __attribute__((deprecated))
+                                                               ^
+    11 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:80:37: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd
+                                        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:87:37: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd
+                                        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:95:49: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidReceiveAd:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:100:44: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidOpen:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                               ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:104:52: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidStartPlaying:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                       ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:108:55: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidCompletePlaying:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:112:45: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdDidClose:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:117:57: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+    - (void)rewardBasedVideoAdWillLeaveApplication:(nonnull GADRewardBasedVideoAd *)rewardBasedVideoAd {
+                                                            ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:39:28: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+        [GADRewardBasedVideoAd sharedInstance].delegate = self;
+                               ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:56:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] loadRequest:[factory createRequest]
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:61:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance]
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:66:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] setUserIdentifier:userIdentifier];
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:70:27: warning: 'GADRewardBasedVideoAd' is deprecated: Use GADRewardedAd instead. Google AdMob publishers, follow instructions here: https://googlemobileadssdk.page.link/admob-ios-rewarded-migration. Google Ad Manager publishers, follow instructions here: https://googlemobileadssdk.page.link/admanager-ios-rewarded-migration. [-Wdeprecated-declarations]
+      [[GADRewardBasedVideoAd sharedInstance] setCustomRewardString:customRewardString];
+                              ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRewardBasedVideoAd.h:17:1: note: 'GADRewardBasedVideoAd' has been explicitly marked deprecated here
+    GAD_DEPRECATED_MSG_ATTRIBUTE(
+    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.h:6:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRewardedVideoAdWrapper.m:75:66: warning: implicit conversion loses integer precision: 'FLTRewardedVideoAdStatus' to 'int' [-Wshorten-64-to-32]
+          (NSString *)rewardedStatusToString[[NSNumber numberWithInt:_rewardedStatus]];
+                                             ~                       ^~~~~~~~~~~~~~~
+    14 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTMobileAd.m:39:17: warning: 'configureWithApplicationID:' is deprecated: Use [GADMobileAds.sharedInstance startWithCompletionHandler:] [-Wdeprecated-declarations]
+      [GADMobileAds configureWithApplicationID:appId];
+                    ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:161:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADMobileAds.h:82:5: note: 'configureWithApplicationID:' has been explicitly marked deprecated here
+        GAD_DEPRECATED_MSG_ATTRIBUTE("Use [GADMobileAds.sharedInstance startWithCompletionHandler:]");
+        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Headers/Private/Firebase/Firebase.h:161:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTMobileAd.m:97:79: warning: implicit conversion loses integer precision: 'FLTMobileAdStatus' to 'int' [-Wshorten-64-to-32]
+      NSString *statusString = (NSString *)statusToString[[NSNumber numberWithInt:_status]];
+                                                          ~                       ^~~~~~~
+    2 warnings generated.
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:71:13: warning: 'testDevices' is deprecated: Use GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers. [-Wdeprecated-declarations]
+        request.testDevices = testDevices;
+                ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:88:71: note: 'testDevices' has been explicitly marked deprecated here
+    @property(nonatomic, copy, nullable) NSArray<NSString *> *testDevices GAD_DEPRECATED_MSG_ATTRIBUTE(
+                                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:91:15: warning: 'birthday' is deprecated [-Wdeprecated-declarations]
+          request.birthday =
+                  ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:95:55: note: 'birthday' has been explicitly marked deprecated here
+    @property(nonatomic, copy, nullable) NSDate *birthday GAD_DEPRECATED_ATTRIBUTE;
+                                                          ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:33:49: note: expanded from macro 'GAD_DEPRECATED_ATTRIBUTE'
+    #define GAD_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
+                                                    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:106:19: warning: 'gender' is deprecated [-Wdeprecated-declarations]
+              request.gender = genderValue;
+                      ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:92:47: note: 'gender' has been explicitly marked deprecated here
+    @property(nonatomic, assign) GADGender gender GAD_DEPRECATED_ATTRIBUTE;
+                                                  ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:33:49: note: expanded from macro 'GAD_DEPRECATED_ATTRIBUTE'
+    #define GAD_DEPRECATED_ATTRIBUTE __attribute__((deprecated))
+                                                    ^
+    /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.m:116:14: warning: 'tagForChildDirectedTreatment:' is deprecated:  use [GADMobileAds.sharedInstance.requestConfiguration tagForChildDirectedTreatment] [-Wdeprecated-declarations]
+        [request tagForChildDirectedTreatment:childDirected.boolValue];
+                 ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GADRequest.h:126:5: note: 'tagForChildDirectedTreatment:' has been explicitly marked deprecated here
+        GAD_DEPRECATED_MSG_ATTRIBUTE(
+        ^
+    In module 'GoogleMobileAds' imported from /Users/djobukata/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admob-0.9.3+2/ios/Classes/FLTRequestFactory.h:5:
+    /Users/djobukata/Desktop/DealTout/dealtout/ios/Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.framework/Headers/GoogleMobileAdsDefines.h:25:56: note: expanded from macro 'GAD_DEPRECATED_MSG_ATTRIBUTE'
+    #define GAD_DEPRECATED_MSG_ATTRIBUTE(s) __attribute__((deprecated(s)))
+                                                           ^
+    4 warnings generated.
+    building file list ... done
+    deleting App.framework/_CodeSignature/CodeResources
+    deleting App.framework/_CodeSignature/
+    App.framework/
+    App.framework/flutter_assets/AssetManifest.json
+    App.framework/flutter_assets/FontManifest.json
+    App.framework/flutter_assets/NOTICES
+    App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf
+    App.framework/flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf
+    App.framework/flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf
+
+    sent 784885 bytes  received 158 bytes  1570086.00 bytes/sec
+    total size is 17009198  speedup is 21.67
+    building file list ... done
+    Flutter.framework/
+    Flutter.framework/Flutter
+    Flutter.framework/Info.plist
+    Flutter.framework/icudtl.dat
+    Flutter.framework/_CodeSignature/
+    Flutter.framework/_CodeSignature/CodeResources
+
+    sent 426581227 bytes  received 120 bytes  77560244.91 bytes/sec
+    total size is 426528750  speedup is 1.00
+    Warning: unable to build chain to self-signed root for signer "Apple Distribution: Mwanza Djo Bukata (X6TVYR2T3Q)"
+    /Users/djobukata/Desktop/DealTout/dealtout/build/ios/Release-iphoneos/DealTout.app/Frameworks/App.framework/App: errSecInternalComponent
+    Command PhaseScriptExecution failed with a nonzero exit code
+    note: Using new build system
+    note: Planning build
+    note: Constructing build description
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'gRPC-C++-gRPCCertificates-Cpp' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 5.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'leveldb-library' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 4.3, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'nanopb' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'BoringSSL-GRPC' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'GTMSessionFetcher' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'gRPC-Core' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'gRPC-C++' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'abseil' from project 'Pods')
+    warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.0, but the range of supported deployment target versions is 8.0 to 13.2.99. (in target 'Protobuf' from project 'Pods')
+

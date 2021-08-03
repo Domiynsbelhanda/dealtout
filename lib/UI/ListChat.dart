@@ -16,7 +16,7 @@ class ChatBody extends StatefulWidget{
 class _ChatState extends State<ChatBody>{
   String keys;
   _ChatState({this.keys});
-  final Firestore _firestore = Firestore.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   List<Posts> postsList;
 
   String datas, datas2, datas3;
@@ -30,16 +30,16 @@ class _ChatState extends State<ChatBody>{
   }
 
   void char() async{
-    Firestore.instance
+    FirebaseFirestore.instance
     .collection('message')
     .snapshots()
     .listen((data) =>
-        data.documents.forEach((doc) { setState(() {
+        data.docs.forEach((doc) { setState(() {
           datas = doc['a'];
           datas2 = doc['de'];
 
           if(datas == keys || datas == keys){
-            uid = doc.documentID;
+            uid = doc.id;
           }
         });
         }));
@@ -76,11 +76,11 @@ class _ChatState extends State<ChatBody>{
                           .snapshots(),
                 builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
                   if(!snapshot.hasData) return const Text('En cours de chargement ...');
-                  final int messageCount = snapshot.data.documents.length;
+                  final int messageCount = snapshot.data.docs.length;
                   return ListView.builder(
                     itemCount: messageCount,
                     itemBuilder: (_, int index){
-                      final DocumentSnapshot document = snapshot.data.documents[index];
+                      final DocumentSnapshot document = snapshot.data.docs[index];
                       if (document['de'] == keys){
                         keyAA = document['a'];
                         return Container(
